@@ -7,7 +7,7 @@ var Nav = React.createClass({
             <div className="top-bar">
                 <div className="top-bar-left">
                     <ul className="menu">
-                    <li className="menu-text">React Boilerplate</li>
+                    <li className="menu-text">React To Do App</li>
                         <li>
                             <IndexLink to="/" activeClassName="active-link" activeStyle={{fontWeight: "bold"}}>Link</IndexLink>
                         </li>
