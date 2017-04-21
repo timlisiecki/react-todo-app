@@ -1,5 +1,6 @@
 var React = require("react");
 var TodoList = require("TodoList");
+var AddTodo = require("AddTodo");
 
 var Todo = React.createClass({
 	getInitialState: function() {
@@ -28,6 +29,9 @@ var Todo = React.createClass({
 			]
 		};
 	},
+	handleAddTodo: function (text) {
+		alert("new todo: " + text);
+	},
 	render: function() {
 		var {todos} = this.state;
 
@@ -35,6 +39,7 @@ var Todo = React.createClass({
 			<div>
 				<h1 className="text-center">To Do App</h1>
 				<TodoList todos={todos}/>
+				<AddTodo onAddTodo={this.handleAddTodo}/>
 			</div>
 		)
 	}
