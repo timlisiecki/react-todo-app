@@ -1,5 +1,6 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
+var {Provider} = require("react-redux");
 var {Route, Router, IndexRoute, hashHistory} = require("react-router");
 var Main = require("Main");
 var Todo = require("Todo");
@@ -22,12 +23,15 @@ $(document).foundation();
 require("style!css!sass!applicationStyles");
 
 ReactDOM.render(
-    <Router history={hashHistory}>
+    /* <Router history={hashHistory}>
         <Route path="/" component={Main}>
             <Route/>
             <IndexRoute component={Todo}/>
         </Route>
-    </Router>,
+    </Router>,*/
+    <Provider store={store}>
+    	<Todo/>
+    </Provider>,
     document.getElementById('app')
 );
 

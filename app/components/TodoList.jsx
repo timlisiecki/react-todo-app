@@ -1,7 +1,8 @@
 var React = require("react");
-var TodoItem = require("TodoItem");
+var {connect} = require("react-redux");
+import TodoItem from "TodoItem";
 
-var TodoList = React.createClass({
+export var TodoList = React.createClass({
 	render: function() {
 		var {todos} = this.props;
 		var renderTodos = () => {
@@ -12,7 +13,7 @@ var TodoList = React.createClass({
 			}
 			return todos.map((todo) => {
 				return (
-					<TodoItem key={todo.id} {...todo} onToggle={this.props.onToggle}/>
+					<TodoItem key={todo.id} {...todo}/>
 				);
 			});
 		};
@@ -25,4 +26,10 @@ var TodoList = React.createClass({
 	}
 });
 
-module.exports = TodoList;
+export default connect(
+	(state) => {
+		return {
+			todos: state.todos
+		};
+	}
+)(TodoList);
