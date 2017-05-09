@@ -6,13 +6,17 @@ import AddTodo from "AddTodo";
 import TodoSearch from "TodoSearch";
 import * as actions from "actions";
 
-export var Todo = React.createClass({
+export class Todo extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onLogout = this.onLogout.bind(this);
+	}
 	onLogout(e) {
 		var {dispatch} = this.props;
 		e.preventDefault();
 
 		dispatch(actions.startLogout());
-	},
+	}
 	render() {
 		return (
 			<div>
@@ -32,6 +36,6 @@ export var Todo = React.createClass({
 			</div>
 		)
 	}
-});
+};
 
 export default Redux.connect()(Todo);
